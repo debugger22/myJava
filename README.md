@@ -7,7 +7,7 @@ A collection of my small java programs
 Rectangle
 =========
 
-This class creates a rectangle with given coordinates, height and width.
+This class creates a rectangle with given coordinates, height and width.<br/>
 It can be initialized in three ways Rectangle(), Rectangle(x, y, height,width) and Rectangle(x, y, height)
 
 Circle
