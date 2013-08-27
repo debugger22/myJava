@@ -12,6 +12,6 @@ It can be initialized in three ways Rectangle(), Rectangle(x, y, height,width) a
 <h2>Circle</h2>
 
 This class creates circle with 3 possible methods<br/>
-Circle(), Circle(x,y) and Circle(x,y, radius)</br>
+Circle(), Circle(x,y) and Circle(x,y, radius)<br/>
 The missing parameters in first two types are automatically set to 0<br/>
 This class has a class level public field PI which is equal to 3.14 by default
