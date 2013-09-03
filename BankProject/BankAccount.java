@@ -11,16 +11,20 @@ public class BankAccount {
 	private long accountNo;
 	private int noOfTransactions=0;
 	private double minimumBalance = 500;
+	LastTransaction last = new LastTransaction();
+	PersonalDetails personal = new PersonalDetails();
 	
-	public BankAccount(double initialBalance){
-		this.accountNo = accNoIndex;
-		accNoIndex++;
-		System.out.println(accountNo);
-		this.balance = initialBalance;
-	}
-	
-	public BankAccount(){
-		this.balance = 0;
+	public BankAccount(double initialBalance, String name, String address){
+		if (initialBalance>=500){
+			this.accountNo = accNoIndex;
+			accNoIndex++;
+			this.balance = initialBalance;
+			personal.name = name;
+			personal.address = address;
+		}
+		else{
+			System.out.println("Insufficient amount to start a new account. At least 500 is required!");
+		}
 	}
 	
 	/**
@@ -32,6 +36,7 @@ public class BankAccount {
 	public void deposit(double amount){
 		this.balance += amount;
 		this.noOfTransactions++;
+		last.typeOfTransaction = "Deposit";
 	}
 	
 	/**
@@ -44,6 +49,7 @@ public class BankAccount {
 	public void withdraw(double amount){
 		if(this.balance-amount>=this.minimumBalance){
 			this.balance -= amount;
+			last.typeOfTransaction = "Withdraw";
 		}
 		else{
 			System.out.println("Insufficient balance!");
@@ -68,10 +74,24 @@ public class BankAccount {
 	 * @param beneficiary
 	 * @param amount
 	 */
-	public void tranfer(BankAccount beneficiary, double amount){
+	public void transfer(BankAccount beneficiary, double amount){
 		if(this.balance - amount >=this.minimumBalance){
 			this.withdraw(amount);
 			beneficiary.deposit(amount);
+			last.typeOfTransaction = "Transfer";
 		}
+	}
+	
+	/**
+	 * This method prints the details of the account such as account no, name,
+	 * current balance, address and type of last transaction
+	 */
+	public String toString(){
+		System.out.println("Account Number: "+this.accountNo);
+		System.out.println("Current Balance: "+this.getBalance());
+		System.out.println("Name: "+personal.name);
+		System.out.println("Address: "+personal.address);
+		System.out.println("Last Transaction: "+last.typeOfTransaction);
+		return "";
 	}
 }
