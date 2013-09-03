@@ -20,6 +20,6 @@ Circle
 
 BackAccount
 -----------
- * This class creates a bank account and provides methods like deposit, withdraw, getBalance and transfer
+ * This project creates a bank account with some details such as name, address and initial amount and provides methods like deposit, withdraw, getBalance and transfer
  * It automatically generates a sequential new account no for every object of the class starting from 180020131111
  * This class also keeps record of the number of transactions
