@@ -1,46 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <title>Myjava by mrsud</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mrsud/myJava">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mrsud/myJava/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mrsud/myJava/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <header>
-      <div class="container">
-        <h1>Myjava</h1>
-        <h2>A collection of my small java programs</h2>
+    <div class="wrapper">
 
-        <section id="downloads">
-          <a href="https://github.com/mrsud/myJava/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/mrsud/myJava/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/mrsud/myJava" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+      <section>
+        <div id="title">
+          <h1>Myjava</h1>
+          <p>A collection of my small java programs</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mrsud">mrsud</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-    <div class="container">
-      <section id="main_content">
         <h1>
 <a name="myjava" class="anchor" href="#myjava"><span class="octicon octicon-link"></span></a>myJava</h1>
 
 <p>A collection of my small java programs</p>
 
 <h2>
-<a name="rectangle" class="anchor" href="#rectangle"><span class="octicon octicon-link"></span></a>Rectangle</h2>
+<a name="random" class="anchor" href="#random"><span class="octicon octicon-link"></span></a>Random</h2>
+
+<p><strong>Rectangle</strong></p>
 
 <ul>
 <li>This class creates a rectangle with given coordinates, height and width.</li>
 <li>It can be initialized in three ways Rectangle(), Rectangle(x, y, height,width) and Rectangle(x, y, height)</li>
-</ul><h2>
-<a name="circle" class="anchor" href="#circle"><span class="octicon octicon-link"></span></a>Circle</h2>
+</ul><p><strong>Circle</strong></p>
 
 <ul>
 <li>This class creates circle with 3 possible methods</li>
@@ -51,13 +62,14 @@
 <a name="backaccount" class="anchor" href="#backaccount"><span class="octicon octicon-link"></span></a>BackAccount</h2>
 
 <ul>
-<li>This project creates a bank account with some details such as name, address and initial amount and provides methods like deposit, withdraw, getBalance and transfer</li>
+<li>This project creates a bank account and provides methods like deposit, withdraw, getBalance and transfer.</li>
 <li>It automatically generates a sequential new account no for every object of the class starting from 180020131111</li>
-<li>This class also keeps record of the number of transactions</li>
+<li>Currently it has three type of accounts Checking account, Savings account and Fixed deposite account.</li>
 </ul>
       </section>
-    </div>
 
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
