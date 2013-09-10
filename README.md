@@ -21,4 +21,4 @@ BackAccount
 -----------
  * This project creates a bank account and provides methods like deposit, withdraw, getBalance and transfer.
  * It automatically generates a sequential new account no for every object of the class starting from 180020131111
- * Currently it has three types of accounts Checking account, Savings account and Fixed deposite account.
+ * Currently it has three type of accounts Checking account, Savings account and Fixed deposite account.
