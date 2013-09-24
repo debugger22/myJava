@@ -8,11 +8,12 @@
 public class BankAccount {
 	private double balance;
 	private static long accNoIndex=180020131111L;
-	private long accountNo;
+	public long accountNo;
 	private int noOfTransactions=0;
 	private double minimumBalance = 500;
 	LastTransaction last = new LastTransaction();
 	PersonalDetails personal = new PersonalDetails();
+	Verifier myVerifier = new Verifier("myAwesomePassword", 0);
 	
 	public BankAccount(double initialBalance, String name, String address){
 		if (initialBalance>=500){
