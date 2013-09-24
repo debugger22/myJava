@@ -1,8 +1,4 @@
-/**
- * This class inherits BankAccount class and creates a fixed deposit account for the customer
- * @author Sudhanshu Mishra
- *
- */
+
 public class FDAccount extends BankAccount{
 	private double roi;
 	private int depositFlag = 0;
@@ -16,16 +12,10 @@ public class FDAccount extends BankAccount{
 			this.roi = 8;
 	}
 	
-	/**
-	* This method is created just to override the withdraw method of BankAccount class
-	*/
 	public void withdraw(double amount){
 		System.out.println("No withdrawal allowed for FD account type");
 	}
 	
-	/**
-	* This method allows user to deposit an amount in the FD account only once
-	*/
 	public void deposit(double amount){
 		if(depositFlag==0){
 			super.deposit(amount);

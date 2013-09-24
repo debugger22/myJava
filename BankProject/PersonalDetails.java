@@ -1,6 +1,4 @@
-/**
-* This class keeps record of the customer
-*/
+
 public class PersonalDetails {
 	public String name,address;
 	public void setName(String username){

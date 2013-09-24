@@ -13,13 +13,9 @@ public class BankAccount {
 	private double minimumBalance = 500;
 	LastTransaction last = new LastTransaction();
 	PersonalDetails personal = new PersonalDetails();
-	/**
-	* The constructor of this class takes 3 parameters namely, initial balance, name and address.
-	* It creates an account with a unique account number for the customer if the initial amount
-	* passed is greater than or equal to 500
-	*/
+	
 	public BankAccount(double initialBalance, String name, String address){
-		if (initialBalance>=50){
+		if (initialBalance>=500){
 			this.accountNo = accNoIndex;
 			accNoIndex++;
 			this.balance = initialBalance;

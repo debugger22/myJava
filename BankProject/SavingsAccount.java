@@ -1,5 +1,5 @@
 /**
- * This class inherits BankAccount class and creates a savings account for the customer
+ * This class inherits BankAccount class and creates a checking account for the user
  * @author Sudhanshu Mishra
  *
  */
