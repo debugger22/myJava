@@ -5,6 +5,7 @@
  */
 public class SavingsAccount extends BankAccount{
 	private double roi;
+	public double taxDeducted = 0;
 	public SavingsAccount(double money, String name, String address, double roi){
 		super(money, name, address);
 		this.roi = roi;
@@ -13,6 +14,8 @@ public class SavingsAccount extends BankAccount{
 	public void addInterest(){
 		double interest = (super.getBalance()*this.roi)/100;
 		super.deposit(interest);
+		this.taxDeducted = super.calculateTax(interest);
+		
 	}
 	
 }

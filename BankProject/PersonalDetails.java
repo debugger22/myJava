@@ -1,6 +1,7 @@
 
 public class PersonalDetails {
 	public String name,address;
+	
 	public void setName(String username){
 		name = username;
 	}

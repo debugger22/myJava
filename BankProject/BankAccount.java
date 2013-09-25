@@ -5,7 +5,10 @@
  * class starting from 180020131111
  * @author Sudhanshu Mishra
  */
-public class BankAccount {
+import java.io.Serializable;
+
+public class BankAccount implements ITRules, Serializable{
+	static final long serialVersionUID = 180020131111L;
 	private double balance;
 	private static long accNoIndex=180020131111L;
 	public long accountNo;
@@ -94,5 +97,19 @@ public class BankAccount {
 		System.out.println("Address: "+personal.getAddress());
 		System.out.println("Last Transaction: "+last.lastTypeOfTransaction());
 		return "";
+	}
+	
+	public double calculateTax(double amount){
+		int rate;
+		double tax=0;
+		if(amount>10000 && amount<=30000)
+			tax = amount*this.slab1;
+		else if(amount>30000 && amount<=75000)
+			tax = amount*this.slab2;
+		else if(amount>75000 && amount<=100000)
+			tax = amount*this.slab3;
+		else if(amount>100000)
+			tax = amount*this.slab4;
+		return tax;
 	}
 }
