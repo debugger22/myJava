@@ -1,5 +1,5 @@
 
-public class LastTransaction {
+public class LastTransaction implements java.io.Serializable{
 	public String typeOfTransaction;
 	public String lastTypeOfTransaction(){
 		return typeOfTransaction;

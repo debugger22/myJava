@@ -5,10 +5,9 @@
  * class starting from 180020131111
  * @author Sudhanshu Mishra
  */
-import java.io.Serializable;
 
-public class BankAccount implements ITRules, Serializable{
-	static final long serialVersionUID = 180020131111L;
+public class BankAccount implements ITRules, java.io.Serializable{
+	//static final long serialVersionUID = 180020131111L;
 	private double balance;
 	private static long accNoIndex=180020131111L;
 	public long accountNo;

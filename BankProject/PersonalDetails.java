@@ -1,5 +1,5 @@
 
-public class PersonalDetails {
+public class PersonalDetails implements java.io.Serializable{
 	public String name,address;
 	
 	public void setName(String username){

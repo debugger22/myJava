@@ -1,4 +1,4 @@
-public class Verifier {
+public class Verifier implements java.io.Serializable{
 	public String password;
 	public Integer wrongTries;
 	
