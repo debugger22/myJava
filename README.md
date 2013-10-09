@@ -1,6 +1,3 @@
-myJava
-======
-
 BackAccount
 -----------
 I am doing this project for my object oriented programming course. This project will be graded. Currently I don't have
