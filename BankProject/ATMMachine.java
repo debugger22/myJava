@@ -4,30 +4,27 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 /**
  * This class generates graphical user interface for ATM machine
  * @author Sudhanshu Mishra
  *
  */
 public class ATMMachine {
+	private static int attemptCount=0;
+	
 	public static void main(String[] args) {
-	    final JFrame frame = new JFrame("ATM Machine");
+		final JFrame frame = new JFrame("ATM Machine");
 	    JPanel northPanel = new JPanel();
 	    JPanel southPanel = new JPanel();
-	    JPanel westPanel = new JPanel();
-	    JPanel eastPanel = new JPanel();
 	    JPanel centerPanel = new JPanel();
 	    JMenuBar menu = new JMenuBar();
 	    JMenu menuHelp = new JMenu("Help");
-	    JButton westCmd1 = new JButton("Button1");
-	    JButton westCmd2 = new JButton("Button2");
-	    JButton westCmd3 = new JButton("Button3");
-	    JButton eastCmd1 = new JButton("Button1");
-	    JButton eastCmd2 = new JButton("Button2");
 	    JButton cmdSubmit = new JButton("Submit");
-	    JButton eastCmd3 = new JButton("Button3");
 	    JLabel northLabel = new JLabel("ATM Machine");
-	    JLabel southLabel = new JLabel("An Extension to BankManager Class");
+	    final JLabel southLabel = new JLabel("An Extension to BankManager Class");
 	    JLabel lblAccNo = new JLabel("Account No: ");
 	    JLabel lblPIN = new JLabel("Password: ");
 	    final JTextField txtAccNo = new JTextField(12);
@@ -35,38 +32,36 @@ public class ATMMachine {
 	    
 	    
 	    
+	    
 	    //Styles
-	    centerPanel.setBorder(BorderFactory.createEtchedBorder());
+	    southPanel.setBorder(BorderFactory.createEtchedBorder());
 	    northLabel.setForeground(Color.GRAY);
 	    southLabel.setForeground(Color.GRAY);
 	    
 	    //Appending respective widgets to respective panels
 	    northPanel.add(northLabel);
 	    southPanel.add(southLabel);
-	    westPanel.add(westCmd1);
-	    westPanel.add(westCmd2);
-	    westPanel.add(westCmd3);
-	    eastPanel.add(eastCmd1);
-	    eastPanel.add(eastCmd2);
-	    eastPanel.add(eastCmd3);
-	    eastPanel.setLayout(new GridLayout(3,1));
-	    westPanel.setLayout(new GridLayout(3,1));
 
-	    //centerPanel.setLayout(new GridLayout(3,2));
+	    //centerPanel.setLayout(new BorderLayout(10,20));
 	    centerPanel.add(lblAccNo);
 	    centerPanel.add(txtAccNo);
 	    centerPanel.add(lblPIN);
 	    centerPanel.add(txtPIN);
 	    centerPanel.add(cmdSubmit);
 	    centerPanel.setBounds(new Rectangle(200,20,10,10));
+	    Border current = centerPanel.getBorder();
+	    Border empty = new EmptyBorder(70, 0, 0, 0);
+	    if (current == null){
+	    	centerPanel.setBorder(empty);
+	    }else{
+	    	centerPanel.setBorder(new CompoundBorder(empty, current));
+	    }
+	    
 	    
 	    //Appending respective blocks of the layout to the main frame
 	    frame.add(northPanel, BorderLayout.NORTH);
 	    frame.add(southPanel, BorderLayout.SOUTH);
-	    frame.add(westPanel, BorderLayout.WEST);
-	    frame.add(eastPanel, BorderLayout.EAST);
 	    frame.add(centerPanel, BorderLayout.CENTER);
-	    cmdSubmit.setPreferredSize(new Dimension(100,30));
 	    
 	    //Designing menu
 	    JMenuItem menuItemHelp = new JMenuItem("Help");
@@ -88,13 +83,24 @@ public class ATMMachine {
 	    	@Override
 			public void actionPerformed(ActionEvent arg0) {
  				if(txtAccNo.getText().intern()=="" || txtPIN.getText().intern()==""){
- 					System.out.println("Please enter Account number and password to proceed.");
+ 					southLabel.setForeground(Color.RED);
+ 					southLabel.setText("Please enter Account number and password to proceed.");
+ 					txtAccNo.requestFocus(); 					
  				}else{
- 					//TODO Verification thing will go here
- 					frame.setVisible(false);
- 					WithdrawWindow wWindow= new WithdrawWindow();
-					wWindow.showWindow();
-				
+ 					if(txtAccNo.getText().intern()!="123" || txtPIN.getText().intern()!="456"){
+ 						if(attemptCount==2)
+ 							System.exit(0);
+ 						attemptCount++;
+ 						southLabel.setForeground(Color.RED);
+ 						southLabel.setText("Wrong account no. or password. Wrong attempt(s): "+attemptCount);
+ 						txtAccNo.setText("");
+ 						txtPIN.setText("");
+ 						txtAccNo.requestFocus();
+ 						return;
+ 					}else{
+ 						OptionWindow oWindow= new OptionWindow();
+ 						frame.dispose();
+ 					}
  				}
  			}
     	
@@ -102,8 +108,8 @@ public class ATMMachine {
 	    
 	    //Configuring frame
 	    frame.setJMenuBar(menu);
-	    frame.setSize((int)java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth()-500,
-	    		200);
+	    frame.setSize((int)java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth()-700,
+	    		300);
 	    frame.setLocationRelativeTo(null);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    frame.setVisible(true);
