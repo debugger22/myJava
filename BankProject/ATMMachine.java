@@ -8,7 +8,7 @@ import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 /**
- * This class generates graphical user interface for ATM machine
+ * This class generates graphical user interface for ATM machine login screen
  * @author Sudhanshu Mishra
  *
  */

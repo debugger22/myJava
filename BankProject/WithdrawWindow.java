@@ -7,14 +7,16 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
-
+/**
+ * This class generates user interface for withdrawal form
+ * @author Sudhanshu Mishra
+ *
+ */
 public class WithdrawWindow {
-    final JFrame frame = new JFrame("Withdraw Cash");
-    JPanel centerPanel = new JPanel();
     private double balance=20000;
 
 	public WithdrawWindow() {
-		final JFrame frame = new JFrame("ATM Machine");
+		final JFrame frame = new JFrame("Withdraw Cash");
 	    JPanel northPanel = new JPanel();
 	    JPanel southPanel = new JPanel();
 	    JPanel centerPanel = new JPanel();
