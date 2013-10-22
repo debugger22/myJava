@@ -9,7 +9,7 @@ public class CheckingAccount extends BankAccount{
 	private int noOfTransactions = 0;
 	
 	public CheckingAccount(double initialBalance, String name, String address){
-		super(initialBalance,name,address);
+		super(initialBalance,name,address,"1234");
 	}
 	
 	public double getBalance(){

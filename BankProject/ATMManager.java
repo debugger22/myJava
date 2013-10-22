@@ -8,7 +8,7 @@ public class ATMManager {
 	public static void main(String[] args){
         BankAccount[] accounts = null;
 		try{
-        	String serializedFile = "/home/user/workspace/BankAccountProject/src/data/bankAccounts.ser";
+        	String serializedFile = "/home/mrsud/workspace/BankProject/src/data/bankAccounts.ser";
 			FileInputStream fileIn = new FileInputStream(serializedFile);
 	        ObjectInputStream in = new ObjectInputStream(fileIn);
 	        accounts = (BankAccount[])in.readObject();
@@ -24,16 +24,19 @@ public class ATMManager {
             return;
         }
         
-		String fileName="/home/user/workspace/BankAccountProject/src/data/address.txt";
+		//String fileName="/home/user/workspace/BankAccountProject/src/data/address.txt";
+		String fileName="/home/mrsud/workspace/BankProject/details.txt";
 		FileWriter output = null;
 		try {
 			output = new FileWriter(fileName);
 			BufferedWriter writer = new BufferedWriter(output);
-			String address;
+			Long accno;
+			String pwd;
 			for(int i=0;i<5;i++){
-	        	address = accounts[i].personal.address;
+	        	accno = accounts[i].accountNo;
+	        	pwd = accounts[i].myVerifier.password;
 	        	//System.out.println(address);
-	        	writer.write(address+"\n");	
+	        	writer.write(accno+" "+pwd+"\n");	
 			}
 			writer.close();
 			output.close();

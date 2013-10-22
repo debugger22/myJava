@@ -3,8 +3,8 @@ import java.io.*;
 public class MyFileReader {
 	public static void main(String[] args){
 		String data = "";
-		String fileName="/home/user/workspace/BankAccountProject/src/data/bankAccountDetailsFile";
-		String serializedFile = "/home/user/workspace/BankAccountProject/src/data/bankAccounts.ser";
+		String fileName="bankAccountDetailsFile";
+		String serializedFile = "bankAccounts.ser";
 		String line = "";
 		FileReader file = null;
 		int noOfAccounts=0;
@@ -22,7 +22,7 @@ public class MyFileReader {
 	    	  }
 	    	  else{
 	    		  String[] parts = line.split("::");
-	    		  bAArray[count-2] = new BankAccount(Integer.parseInt(parts[0]),parts[1],parts[2]);
+	    		  bAArray[count-2] = new BankAccount(Integer.parseInt(parts[0]),parts[1],parts[2],parts[3]);
 	    	  }
 	    	}
 	    } catch (FileNotFoundException e) {

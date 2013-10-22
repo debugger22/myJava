@@ -17,13 +17,14 @@ public class BankAccount implements ITRules, java.io.Serializable{
 	PersonalDetails personal = new PersonalDetails();
 	Verifier myVerifier = new Verifier("myAwesomePassword", 0);
 	
-	public BankAccount(double initialBalance, String name, String address){
+	public BankAccount(double initialBalance, String name, String address, String Password){
 		if (initialBalance>=500){
 			this.accountNo = accNoIndex;
 			accNoIndex++;
 			this.balance = initialBalance;
 			personal.setName(name);
 			personal.setAddress(address);
+			myVerifier.password = Password;
 		}
 		else{
 			System.out.println("Insufficient amount to start a new account. At least 500 is required!");

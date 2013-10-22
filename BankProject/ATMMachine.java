@@ -2,6 +2,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -87,6 +91,41 @@ public class ATMMachine {
  					southLabel.setText("Please enter Account number and password to proceed.");
  					txtAccNo.requestFocus(); 					
  				}else{
+ 					String sCurrentLine;
+ 					try {
+ 						BufferedReader br = new BufferedReader(new FileReader(
+ 								"details.txt"));
+ 						int c = 0;
+						while ((sCurrentLine = br.readLine()) != null) {
+ 							System.out.println(sCurrentLine);
+ 							String parts[] = sCurrentLine.split(" ");
+ 							if (parts[0].intern() == txtAccNo.getText().intern()
+ 									&& parts[1].intern() == txtPIN.getText().intern()){
+ 								c = 1;
+ 							break;}
+ 						}
+ 						if (c == 0) {
+ 							southLabel.setForeground(Color.RED);
+ 							southLabel
+ 									.setText("Sorry: Account No. or Password Incorrect");
+ 							txtPIN.setText("");
+ 							txtAccNo.setText("");
+ 							txtAccNo.requestFocus();
+ 							return;
+
+ 						} else if(c==1){
+ 							OptionWindow oWindow= new OptionWindow();
+ 	 						frame.dispose();
+ 						}
+
+ 					} catch (FileNotFoundException e1) {
+ 						// TODO Auto-generated catch block
+ 						e1.printStackTrace();
+ 					} catch (IOException e2) {
+ 						// TODO Auto-generated catch block
+ 						e2.printStackTrace();
+ 					}
+ 					/*
  					if(txtAccNo.getText().intern()!="123" || txtPIN.getText().intern()!="456"){
  						if(attemptCount==2)
  							System.exit(0);
@@ -101,6 +140,7 @@ public class ATMMachine {
  						OptionWindow oWindow= new OptionWindow();
  						frame.dispose();
  					}
+ 					*/
  				}
  			}
     	

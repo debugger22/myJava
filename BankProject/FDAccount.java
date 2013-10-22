@@ -3,7 +3,7 @@ public class FDAccount extends BankAccount{
 	private double roi;
 	private int depositFlag = 0;
 	public FDAccount(double money, String name, String address, int months){
-		super(money, name, address);
+		super(money, name, address,"1234");
 		if(months<=12)
 			this.roi = 6;
 		else if(months>12 && months<=36)

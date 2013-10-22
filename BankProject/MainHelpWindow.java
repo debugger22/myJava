@@ -60,6 +60,7 @@ public class MainHelpWindow {
 	    	@Override
 	    	public void actionPerformed(ActionEvent arg0) {
 				WithdrawHelpWindow whWindow= new WithdrawHelpWindow();
+				whWindow.main();
 				frame.dispose();
 			}
  	    });

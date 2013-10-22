@@ -1,27 +1,39 @@
-import java.awt.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
-/**
- * This class generates user interface for withdrawal form
- * @author Sudhanshu Mishra
- *
- */
-public class WithdrawHelpWindow {
 
-	public WithdrawHelpWindow() {
-		final JFrame frame = new JFrame("Cash Withdrawal Help");
-		
-	    //Configuring frame
-	    frame.setSize((int)java.awt.Toolkit.getDefaultToolkit().getScreenSize().getWidth()-700,
-	    		300);
-	    frame.setLocationRelativeTo(null);
+import java.awt.*;
+import java.awt.geom.Line2D;
+import java.awt.geom.RoundRectangle2D;
+
+public class WithdrawHelpWindow extends JPanel
+{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public void main()
+	{
+		JFrame frame=new JFrame("withdrawal help page");
+		frame.setBackground(Color.green);
+		frame.getContentPane().add(new WithdrawHelpWindow());
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setSize(800, 200);
 	    frame.setVisible(true);
 	}
+	public void paintComponent(Graphics g) {
+	    super.paintComponent(g);
+	   // g.draw(new Line2D.Double(x1, y1, x2, y2));
+	    g.drawRect(0,0,800, 40);
+	    g.drawOval(60, 95, 180, 40);
+	    g.setColor(Color.black);
+	    Font myfont=new Font("ComicSans",Font.BOLD,28);
+        g.setFont(myfont);
+	    g.drawString("Welcome to our Help Page!", 30, 30);
+	    Font textfont=new Font("Times New Roman",Font.PLAIN,15);
+	    g.setFont(textfont);
+	    g.drawString("On the Withdraw page please enter the amount you want to withdraw in the space provided.",60,60);
+	    g.drawString("Please make sure thet the amount is less than your balance.",90,90);
+		g.drawString("Thank you!", 120, 120);
+	    		
+	  }
+
 }
