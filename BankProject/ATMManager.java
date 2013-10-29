@@ -1,14 +1,22 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /**
  * This class uses BankAccount class to implement ATM management for an account
  * @author mrsud
  *
  */
 public class ATMManager {
+	
 	public static void main(String[] args){
-        BankAccount[] accounts = null;
+		Map<String, BankAccount> accountData = new HashMap<String, BankAccount>(); 
+		BankAccount[] accounts = null;
 		try{
-        	String serializedFile = "/home/mrsud/workspace/BankProject/src/data/bankAccounts.ser";
+        	String serializedFile = "bankAccounts.ser";		//Reading BankAccounts from Serialized file
 			FileInputStream fileIn = new FileInputStream(serializedFile);
 	        ObjectInputStream in = new ObjectInputStream(fileIn);
 	        accounts = (BankAccount[])in.readObject();
@@ -23,9 +31,8 @@ public class ATMManager {
             c.printStackTrace();
             return;
         }
-        
-		//String fileName="/home/user/workspace/BankAccountProject/src/data/address.txt";
-		String fileName="/home/mrsud/workspace/BankProject/details.txt";
+    	
+        String fileName="details.txt";	//Writing details to details.txt
 		FileWriter output = null;
 		try {
 			output = new FileWriter(fileName);
@@ -35,8 +42,8 @@ public class ATMManager {
 			for(int i=0;i<5;i++){
 	        	accno = accounts[i].accountNo;
 	        	pwd = accounts[i].myVerifier.password;
-	        	//System.out.println(address);
 	        	writer.write(accno+" "+pwd+"\n");	
+	        	accountData.put(String.valueOf(accounts[i].accountNo), accounts[i]);
 			}
 			writer.close();
 			output.close();
@@ -53,44 +60,30 @@ public class ATMManager {
 	          }
 	      }
 		}
-
 		
-		
-		
-		
-		
-		
-		
-		/*
-		long testAccNo = Long.parseLong(args[0]);
-		String testPass = args[1];
-		for(int i=0;i<1000;i++){
-			bAArray[i] = new BankAccount(10000,"Sudhanshu Mishra","Goa, India");
+		for (Map.Entry<String, BankAccount> entry : accountData.entrySet()){
+		    System.out.println(entry.getKey() + " " + entry.getValue().personal.name);
 		}
 		
-		int i=0;
-		for(i=0;i<1000;i++){
-			if(bAArray[i].accountNo==testAccNo){
-				if(bAArray[i].myVerifier.password.intern()==testPass.intern()){
-					System.out.println("Verification Successfull!");
-					bAArray[i].myVerifier.wrongTries = 0;
-				}
-				else{
-					if(bAArray[i].myVerifier.wrongTries==3){
-						System.out.println("Err: Wrong password");
-						bAArray[i].myVerifier.accountLock();
-					}
-					else{
-						System.out.println("Err: Wrong password");
-						bAArray[i].myVerifier.wrongTries += 1;
-					}
-				}
-				break;
-			}
+		
+		Set<String> addresses = new HashSet<String>();
+		for(int i=0; i<5; i++){
+			if(!addresses.add(accounts[i].personal.address))
+				System.out.println("Duplicate address found");
 		}
-		if(i==1000){
-			System.out.println("Account not found!");
+		
+		System.out.println("\nAccounts with more than 100000 balance");
+		List<BankAccount> goodAccounts = new ArrayList<BankAccount>();
+		for(int i=0;i<5;i++){
+			if(accounts[i].getBalance()>100000)
+				goodAccounts.add(accounts[i]);
 		}
-	*/
+		
+		for(int i=0;i<goodAccounts.size();i++){
+			System.out.println(goodAccounts.get(i).personal.name);
+		}
+		
+		
+	
 	}
 }
