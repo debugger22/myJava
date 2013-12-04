@@ -8,3 +8,7 @@ As of now the code is like this:
  * This project creates a bank account and provides methods like deposit, withdraw, getBalance and transfer.
  * It automatically generates a sequential new account no for every object of the class starting from 180020131111
  * Currently it has three type of accounts Checking account, Savings account and Fixed deposite account.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mrsud/myjava/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
